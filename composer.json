@@ -21,7 +21,7 @@
     "mix-plus/opentracing": "^3.0",
     "mix/runtime": "~2.2.0",
     "mix/grpc": "~3.0",
-    "mix/http-server": "~2.2.0"
+    "mix/http-server": "~3.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.5"
