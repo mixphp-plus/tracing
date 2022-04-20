@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "mix-plus/opentracing": "dev-master",
+    "mix-plus/opentracing": "^3.0",
     "mix/runtime": "~2.2.0",
     "mix/grpc": "~3.0",
     "mix/http-server": "~2.2.0"
