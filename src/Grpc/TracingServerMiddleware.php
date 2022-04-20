@@ -1,6 +1,6 @@
 <?php
 
-namespace Mix\Tracing\Grpc;
+namespace MixPlus\Tracing\Grpc;
 
 use Mix\Http\Message\Response;
 use Mix\Http\Message\ServerRequest;
@@ -15,7 +15,7 @@ use const OpenTracing\Tags\HTTP_URL;
 
 /**
  * Class TracingServerMiddleware
- * @package Mix\Tracing\Grpc
+ * @package MixPlus\Tracing\Grpc
  */
 abstract class TracingServerMiddleware implements MiddlewareInterface
 {

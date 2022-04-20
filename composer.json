@@ -1,5 +1,5 @@
 {
-  "name": "mix/tracing",
+  "name": "mix-plus/tracing",
   "description": "Tracing library, following PSR-7 / PSR-15 / Opentracing standard",
   "type": "library",
   "keywords": [
@@ -18,17 +18,17 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "mix-plus/opentracing": "^1.0",
+    "mix-plus/opentracing": "dev-master",
     "mix/runtime": "~2.2.0",
-    "mix/grpc": "~2.2.0",
+    "mix/grpc": "~3.0",
     "mix/http-server": "~2.2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.0.0"
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
-      "Mix\\Tracing\\": "src/"
+      "MixPlus\\Tracing\\": "src/"
     }
   }
 }

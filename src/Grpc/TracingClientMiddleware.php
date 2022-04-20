@@ -1,6 +1,6 @@
 <?php
 
-namespace Mix\Tracing\Grpc;
+namespace MixPlus\Tracing\Grpc;
 
 use Mix\Grpc\Client\Middleware\MiddlewareInterface;
 use Mix\Grpc\Client\Middleware\RequestHandler;
@@ -9,7 +9,7 @@ use const OpenTracing\Tags\ERROR;
 
 /**
  * Class TracingClientMiddleware
- * @package Mix\Tracing\Grpc
+ * @package MixPlus\Tracing\Grpc
  */
 class TracingClientMiddleware implements MiddlewareInterface
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Mix\Tracing;
+namespace MixPlus\Tracing;
 
 use Mix\Context\Context;
 
 /**
  * Class Tracing
- * @package Mix\Tracing
+ * @package MixPlus\Tracing
  */
 class Tracing
 {
