@@ -18,12 +18,12 @@ class TracingWebServer
     public static function middleware(): \Closure
     {
         return function (Context $ctx) {
-            $ctx->next();
             try {
                 self::process($ctx);
             } catch (\Throwable $e) {
                 $ctx->abortWithStatus(403);
             }
+            $ctx->next();
         };
     }
 
@@ -53,7 +53,7 @@ class TracingWebServer
         $tracer->inject($span->getContext(), TEXT_MAP, $traceHeaders);
         $traceID = $traceHeaders['x-b3-traceid'] ?? null;
         if ($traceID) {
-            $ctx->response->withHeader('x-b3-traceid', $traceID);
+            $ctx->request->withHeader('x-b3-traceid', $traceID);
         }
 
         // 记录 x- 开头的内部 Header 信息
@@ -66,8 +66,17 @@ class TracingWebServer
         // Tracing::extract
 
         $ctx->set('__tracer__', $tracer);
-        $span->setTag(HTTP_STATUS_CODE, $ctx->response->getStatusCode());
-        $span->finish();
-        $tracer->flush();
+        try {
+
+        } catch (\Throwable $ex) {
+            $message = sprintf('%s %s in %s on line %s', $ex->getMessage(), get_class($ex), $ex->getFile(), $ex->getLine());
+            $code    = $ex->getCode();
+            $error   = sprintf('[%d] %s', $code, $message);
+            throw $ex;
+        } finally  {
+            $span->setTag(HTTP_STATUS_CODE, $ctx->response->getStatusCode());
+            $span->finish();
+            $tracer->flush();
+        }
     }
 }
